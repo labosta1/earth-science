@@ -1,0 +1,541 @@
+/* ============================
+   styles.css — Earth & Space Science B
+   Organized sections:
+   1. Base / Reset
+   2. Layout / Grid
+   3. Header / Banner
+   4. Cards / Components
+   5. Utilities / Helpers
+   ============================ */
+
+/* --------------------------------
+   1) BASE / RESET
+   -------------------------------- */
+/* Simple reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #222;
+  background: #f7f8fa;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+}
+
+/* Page container */
+.site {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+/* Headings */
+h1, h2, h3 {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.15;
+  color: #0b3d91; /* deep blue for educational site */
+}
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.05rem; }
+
+/* Links */
+a {
+  color: #0b66c3;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+/* Small text */
+.small {
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+/* --------------------------------
+   2) LAYOUT / GRID
+   -------------------------------- */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* top spacing fix (moved from inline b_index tweak) */
+.top-spacer {
+  padding-top: 1.25rem; /* adjust as needed for local previews */
+}
+
+/* simple responsive grid for cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+/* simple page-level blocks */
+.block {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+/* --------------------------------
+   3) HEADER / BANNER
+   -------------------------------- */
+/* Banner container: adjust height to taste */
+.banner {
+  width: 100%;
+  height: 220px;
+  border-radius: 8px;
+  background-color: #cfe9ff; /* fallback color */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  color: #fff;
+  box-shadow: inset 0 -30px 50px rgba(0,0,0,0.12);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+/* Banner overlay title */
+.banner .banner-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* Example usage:
+   .banner { background-image: url('../images/your-banner.jpg'); }
+   For files inside global-resources-library subfolders you may need
+   relative pathing like: ../../images/your-banner.jpg
+*/
+
+/* --------------------------------
+   4) CARDS / COMPONENTS
+   -------------------------------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid rgba(15,23,42,0.04);
+  box-shadow: 0 1px 3px rgba(15,23,42,0.03);
+}
+
+.card .card-title {
+  font-weight: 600;
+  color: #0b3d91;
+  font-size: 1rem;
+}
+
+.card .card-body {
+  font-size: 0.95rem;
+  color: #2d3748;
+}
+
+.card .card-links {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.card .card-links a {
+  display: inline-block;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  color: #054b9f;
+  background: rgba(8, 83, 157, 0.04);
+  font-size: 0.92rem;
+}
+
+/* Extra-credit note block */
+.note {
+  background: linear-gradient(180deg, #fffef8 0%, #fff 100%);
+  border-left: 4px solid #f6c34a;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* Rubric table (simple, accessible) */
+.rubric {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+}
+.rubric th,
+.rubric td {
+  padding: 0.5rem;
+  border: 1px solid rgba(10, 15, 25, 0.06);
+}
+.rubric th {
+  background: rgba(11,61,145,0.05);
+  text-align: left;
+}
+
+/* --------------------------------
+   5) UTILITIES / HELPERS
+   -------------------------------- */
+/* spacing helpers */
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+
+/* text helpers */
+.text-center { text-align: center; }
+.text-muted { color: #6b7280; }
+
+/* responsive adjustments */
+@media (max-width: 640px) {
+  .banner { height: 140px; padding: 0.75rem; }
+  .site { padding: 0.75rem; }
+  h1 { font-size: 1.4rem; }
+}
+
+/* small accessibility focus style for keyboard users */
+a:focus {
+  outline: 3px solid rgba(11,102,204,0.18);
+  outline-offset: 2px;
+}
+
+/* End of stylesheet */
+/* --------------------------------
+   6) RESOURCE LIBRARY ADD-ONS
+   -------------------------------- */
+
+/* Skip-to-content link: hidden until keyboard-focused */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #0b3d91;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 6px 0;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* Visible focus ring for all keyboard users */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #0b3d91;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Underline links inside content, not in nav */
+.card-body a,
+.note a,
+p a {
+  text-decoration: underline;
+}
+
+/* Readability bump for struggling readers */
+body {
+  line-height: 1.55;
+}
+
+/* Banner scrim: keeps title readable if image fails */
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%);
+}
+.banner {
+  position: relative;
+}
+.banner .banner-title {
+  position: relative;
+  z-index: 1;
+}
+
+/* Resource labels: level, type, and length */
+.badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  margin-right: 0.35rem;
+  border: 1px solid transparent;
+}
+.badge-start {
+  background: #e6f4ea;
+  color: #1b5e20;
+  border-color: #a5d6a7;
+}
+.badge-deeper {
+  background: #ede7f6;
+  color: #4527a0;
+  border-color: #b39ddb;
+}
+.badge-type {
+  background: #eef2f7;
+  color: #263238;
+  border-color: #cfd8dc;
+}
+
+/* Resource list inside a card */
+.resource-list {
+  list-style: none;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+}
+.resource-list li {
+  padding: 0.6rem 0;
+  border-top: 1px solid rgba(15,23,42,0.08);
+}
+.resource-list li:first-child {
+  border-top: none;
+}
+
+/* End of add-ons */
+
+
+/* --------------------------------
+   7) SITE SHELL — page frame, nav, buttons, footer
+   These class names are used by b_index.html and the unit pages.
+   They were missing, which is why those pages looked unstyled.
+   -------------------------------- */
+
+/* Centered page width. Used on header, main, and footer. */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Top bar */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 1rem 0;
+}
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.site-subtitle {
+  margin: 0.15rem 0 0 0;
+  font-size: 0.92rem;
+  color: #4a5568;
+}
+
+/* Main navigation */
+.primary-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+}
+.primary-nav a {
+  display: inline-block;
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #0b3d91;
+}
+.primary-nav a:hover,
+.primary-nav a:focus {
+  background: rgba(11, 61, 145, 0.08);
+  text-decoration: none;
+}
+/* Marks the page you are currently on */
+.primary-nav a[aria-current="page"] {
+  background: #0b3d91;
+  color: #fff;
+}
+
+/* Main content area */
+.site-main {
+  padding-top: 1.25rem;
+  padding-bottom: 2rem;
+}
+
+/* Card grid used on the hub page */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+  align-items: start;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  background: #0b3d91;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid #0b3d91;
+}
+.btn:hover,
+.btn:focus {
+  background: #08306f;
+  color: #fff;
+  text-decoration: none;
+}
+/* Secondary (outlined) button */
+.btn-secondary {
+  background: #fff;
+  color: #0b3d91;
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: rgba(11, 61, 145, 0.08);
+  color: #0b3d91;
+}
+
+/* Row of buttons inside a lesson card */
+.lesson-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+/* Plain resource list inside unit pages */
+.resources {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.15rem;
+}
+.resources li {
+  margin-bottom: 0.3rem;
+}
+
+/* Page footer */
+.site-footer {
+  margin-top: 2rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  font-size: 0.92rem;
+  color: #4a5568;
+  background: #fff;
+}
+.site-footer a { font-weight: 600; }
+
+.muted,
+.attribution {
+  color: #6b7280;
+  font-size: 0.88rem;
+}
+
+/* Study guide row on a lesson library page */
+.study-guide {
+  background: #eef4ff;
+  border-left: 4px solid #0b3d91;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin: 0.75rem 0;
+  font-size: 0.95rem;
+}
+
+/* Small screens */
+@media (max-width: 640px) {
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  .primary-nav a { padding: 0.4rem 0.55rem; font-size: 0.9rem; }
+}
+
+/* End of site shell */
+
+/* --------------------------------
+   8) CONTACT A TUTOR PAGE
+   -------------------------------- */
+.tutor-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 120px;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+.tutor-row:first-of-type { border-top: none; }
+
+.tutor-photo-main {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+.tutor-caption {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0b3d91;
+  text-align: center;
+}
+.tutor-bio-text {
+  margin-top: 0;
+  font-size: 0.95rem;
+}
+.tutor-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.fav-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .tutor-row { grid-template-columns: 1fr; }
+  .tutor-right { flex-direction: row; }
+  .fav-thumb { width: 50%; }
+}
+
+/* Banner heading must stay white — the h1 colour rule above would
+   otherwise make it dark blue on a dark photo (unreadable). */
+.banner .banner-title,
+.banner h1,
+.banner h2 {
+  color: #fff;
+}
